@@ -1,0 +1,12 @@
+.home{
+    box-sizing: border-box;
+    background-color: burlywood;
+    color: black;
+    padding: 1em;
+    margin: 0px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
