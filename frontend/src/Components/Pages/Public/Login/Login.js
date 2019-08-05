@@ -57,7 +57,7 @@ export default class Login extends Component{
                     { (this.state.error && true)? (<div className="error">{this.state.error}</div>):null}
                     <section className="action">
                         <Button caption="Iniciar Sesión" onClick={this.onSiginBtnClick}/>
-                        <Button caption="Crear Cuenta Nueva" onClick={(e)=>{this.props.history.push('/Registrarse')}}/>
+                        <Button caption="Crear Cuenta" onClick={(e)=>{this.props.history.push('/Registrarse')}}/>
                     </section>
                 </section>
             </section>
