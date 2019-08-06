@@ -17,24 +17,31 @@ export default class Post extends Component{
         this.loadMore = this.loadMore.bind(this);
     }
 
-    componentDidMount(){
-        paxios.get('/api/things/page/1/10')
+    loadMore(page){
+        const items = this.state.itemsToLoad;
+        const uri = `/api/things/page/${page}/${items}`;
+        paxios.get(uri)
         .then(
             ({data})=>{
-                console.log(data);
+                const {things, totalThings} = data;
+                const loadedThings = this.state.things;
+                this.map((o)=>{loadedThings.push(o)});
+                if(totalThings){
+                    this.setState({
+                        "things":loadedThings,
+                        "hasMore":(page*items<totalThings)
+                    })
+                }
+                else{
+                    this.setState({
+                        hasMore:false
+                    });
+                }
             }
         )
         .catch((err)=>{
             console.log(err);
         })
-
-    }
-
-    loadMore(page){
-        const items = this.state.itemsToLoad;
-        const uri = `/api/things/page/${page}/${items}`;
-        paxios.get(uri)
-        .then
     }
 
     render(){
