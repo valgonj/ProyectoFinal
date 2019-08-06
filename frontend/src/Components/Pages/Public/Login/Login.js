@@ -27,6 +27,10 @@ export default class Login extends Component{
     }
 
     onSiginBtnClick(e){
+        console.log(this.state);
+        naxios.get('/api/').then((data)=>{console.log(data)}).then((err)=>{console.log(err)});
+    }
+    /*onSiginBtnClick(e){
         //console.log(this.state);
         naxios.post('/api/security/login', this.state).then( ( {data , status})=>{
         this.props.setAuth(data.token, data.user);
@@ -39,7 +43,7 @@ export default class Login extends Component{
         }
       )
     ;
-    }
+    }*/
 
     render(){
         //console.log(this.props);
@@ -57,7 +61,7 @@ export default class Login extends Component{
                     { (this.state.error && true)? (<div className="error">{this.state.error}</div>):null}
                     <section className="action">
                         <Button caption="Iniciar Sesión" onClick={this.onSiginBtnClick}/>
-                        <Button caption="Crear Cuenta" onClick={(e)=>{this.props.history.push('/Registrarse')}}/>
+                        <Button caption="Crear Cuenta" onClick={(e)=>{this.props.history.push('/registrarse')}}/>
                     </section>
                 </section>
             </section>

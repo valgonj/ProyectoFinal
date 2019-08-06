@@ -1,12 +1,12 @@
 const express = require('express');
 
-//const passport = require('passport');
-//const LocalStrategy = require('passport-local').Strategy;
-//const jwt = require('jsonwebtoken');
+/*const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const jwt = require('jsonwebtoken');*/
 
 var router = express.Router();
 
-function initSecurity (db){
+/*function initSecurity (db){
 
   var userModel =  require('./users')(db);
 
@@ -48,7 +48,7 @@ function initSecurity (db){
             //---
         }
       )
-  );
+  );*/
 
   router.post('/login', (req, res, next)=>{
     passport.authenticate(
@@ -60,7 +60,7 @@ function initSecurity (db){
               if(err){
                 return res.status(400).json({"Error":"Error al iniciar sesión"});
               }
-              const token = jwt.sign(user, 'muestradedatosenpollitosenfuga');
+              const token = jwt.sign(user, 'pollitosenfuga');
               return res.status(200).json({user, token});
             });
           }else{
@@ -70,7 +70,7 @@ function initSecurity (db){
     )(req, res);
   }); //login
 
-  router.post('/Registrarse', (req, res ,next)=>{
+  router.post('/registrarse', (req, res ,next)=>{
     var email = req.body.email || 'na';
     var pswd = req.body.password || 'na';
     if( email ==='na' || pswd == 'na') {
@@ -91,7 +91,7 @@ function initSecurity (db){
     });
   }); // signin
 
-  return router;
-}
-
-module.exports = initSecurity;
+//  return router;
+//}
+module.exports = init;
+//module.exports = initSecurity;

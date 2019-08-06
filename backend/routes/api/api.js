@@ -12,7 +12,7 @@ passport.use(
   new JWTStrategy(
     {
       jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-      secretOrKey:"cuandolosgatosnoestanlosratonesfiestahacen"
+      secretOrKey:"pollitosenfuga"
     },
     (payload, next)=>{
       var user = payload;
@@ -22,7 +22,7 @@ passport.use(
 );*/
 
 
-const securityApi = require('./security')(db);
+//const securityApi = require('./security')(db);
 //const thingsApi = require('./things')(db);
 
 
@@ -35,12 +35,12 @@ router.get('/', (req, res, next)=>{
     res.status(200).json({"api":"version1"})
 });
 
-router.use('/security', securityApi);
+//router.use('/security', securityApi);
 //router.use('/things', passport.authenticate('jwt', {session:false}) , thingsApi);
 
 // router.get('/hello', (req, res, next)=>{
 //   res.status(200).json({"msg":"Hola Mundo"});
 // });
-return router;
+//return router;
 //} // routerINit
-module.exports = routerInit;
+module.exports = router;
