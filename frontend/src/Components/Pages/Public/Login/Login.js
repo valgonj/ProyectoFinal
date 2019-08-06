@@ -5,8 +5,6 @@ import { Redirect } from 'react-router-dom';
 import Button from '../../../Common/Btns/Buttons';
 import Campo from '../../../Common/Campo/Campo';
 
-
-
 export default class Login extends Component{
     constructor(){
         super();
@@ -16,7 +14,6 @@ export default class Login extends Component{
             email:'',
             password:'',
             Redirect:false,
-            error:null
         }
         //autobinding
         this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -30,7 +27,7 @@ export default class Login extends Component{
     }
 
     onSiginBtnClick(e){
-        console.log(this.state);
+        //console.log(this.state);
         naxios.post('/api/security/login', this.state).then( ( {data , status})=>{
         this.props.setAuth(data.token, data.user);
         this.setState({redirect:true});
@@ -45,7 +42,7 @@ export default class Login extends Component{
     }
 
     render(){
-        console.log(this.props);
+        //console.log(this.props);
         if(this.state.redirect){
         return (
         <Redirect to={(this.props.location.state) ? this.props.location.state.from.pathname : '/'}/>
@@ -60,7 +57,7 @@ export default class Login extends Component{
                     { (this.state.error && true)? (<div className="error">{this.state.error}</div>):null}
                     <section className="action">
                         <Button caption="Iniciar Sesión" onClick={this.onSiginBtnClick}/>
-                        <Button caption="Crear Cuenta" onClick={(e)=>{this.props.history.push('/registrarse')}}/>
+                        <Button caption="Crear Cuenta" onClick={(e)=>{this.props.history.push('/Registrarse')}}/>
                     </section>
                 </section>
             </section>

@@ -25,9 +25,9 @@ export default class Signin extends Component{
     }
 
     onSiginBtnClick(e){
-        //console.log(this.state);
+        console.log(this.state);
         const {email, password} = this.state;
-        naxios.post('/api/security/registrarse', { email, password })
+        naxios.post('/api/security/Registrarte', { email, password })
         .then(({data})=>{
           console.log(data);
           this.props.history.push("/login");
@@ -48,7 +48,7 @@ export default class Signin extends Component{
                   { (this.state.error && true)? (<div className="error">{this.state.error}</div>):null}
                   <section className="action">
                       <Button caption="Crear Cuenta" onClick={this.onSiginBtnClick}/>
-                      <Button caption="Identificarse" onClick={(e)=>{this.props.history.push('/login')}}/>
+                      <Button caption="Identificarse" onClick={(e)=>{this.props.history.push('/Login')}}/>
                   </section>
               </section>
           </section>
