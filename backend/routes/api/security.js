@@ -60,7 +60,7 @@ function initSecurity (db){
               if(err){
                 return res.status(400).json({"Error":"Error al iniciar sesión"});
               }
-              const token = jwt.sign(user, 'cuandolosgatosnoestanlosratonesfiestahacen');
+              const token = jwt.sign(user, 'pollitosenfuga');
               return res.status(200).json({user, token});
             });
           }else{

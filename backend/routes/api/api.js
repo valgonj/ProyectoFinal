@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-/*const passport = require('passport');
+const passport = require('passport');
 const passportJWT = require('passport-jwt');
 const ExtractJWT = passportJWT.ExtractJwt;
 const JWTStrategy = passportJWT.Strategy;
@@ -19,14 +19,10 @@ passport.use(
       return next(null, user);
     }
   )
-);*/
+);
 
-
-const securityApi = require('./security');
-const thingsApi = require('./things');
-
-
-
+const securityApi = require('./security')(db);
+const thingsApi = require('./things')(db);
 
 router.get('/', (req, res, next)=>{
     //req toda la peticion del cliente
@@ -38,11 +34,11 @@ router.get('/', (req, res, next)=>{
 router.use('/security', securityApi);
 router.use('/things', thingsApi);
 
-//router.use('/things', passport.authenticate('jwt', {session:false}) , thingsApi);
+router.use('/things', passport.authenticate('jwt', {session:false}) , thingsApi);
 
 // router.get('/hello', (req, res, next)=>{
 //   res.status(200).json({"msg":"Hola Mundo"});
 // });
-//return router;
-//} // routerINit
-module.exports = router;
+return router;
+} // routerInit
+module.exports = routerInit;
