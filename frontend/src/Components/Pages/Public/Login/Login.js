@@ -5,6 +5,8 @@ import { Redirect } from 'react-router-dom';
 import Button from '../../../Common/Btns/Buttons';
 import Campo from '../../../Common/Campo/Campo';
 
+
+
 export default class Login extends Component{
     constructor(){
         super();
@@ -28,7 +30,7 @@ export default class Login extends Component{
     }
 
     onSiginBtnClick(e){
-        //console.log(this.state);
+        console.log(this.state);
         naxios.post('/api/security/login', this.state).then( ( {data , status})=>{
         this.props.setAuth(data.token, data.user);
         this.setState({redirect:true});
@@ -43,7 +45,7 @@ export default class Login extends Component{
     }
 
     render(){
-        //console.log(this.props);
+        console.log(this.props);
         if(this.state.redirect){
         return (
         <Redirect to={(this.props.location.state) ? this.props.location.state.from.pathname : '/'}/>

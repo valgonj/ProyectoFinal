@@ -45,7 +45,6 @@ function initSecurity (db){
 
             return next(null, user, { "Status": "Ok" });
           });
-            //---
         }
       )
   );
@@ -70,7 +69,7 @@ function initSecurity (db){
     )(req, res);
   }); //login
 
-  router.post('/signin', (req, res ,next)=>{
+  router.post('/registrarse', (req, res ,next)=>{
     var email = req.body.email || 'na';
     var pswd = req.body.password || 'na';
     if( email ==='na' || pswd == 'na') {
@@ -89,7 +88,7 @@ function initSecurity (db){
       delete newUser.password;
       return res.status(200).json(newUser);
     });
-  }); // signin
+  }); // registrarse
 
   return router;
 }
