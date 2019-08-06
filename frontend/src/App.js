@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from  'react-router-dom';
-import { setJWT, setUnAuthHandler, getLocalStorage, setLocalStorage, removeLocalStorage } from './Utilities';
+import { setJWT, setUnAuthHandler, getLocalStorage, setLocalStorage } from './Utilities';
 //import { AnimatedSwitch } from 'react-router-transition';
 
 import NavBar from './Components/Common/NavBar/NavBar';
@@ -52,7 +52,7 @@ class App extends Component {
     <Router>
       <section className="container">
         <Route path="/" exact component={Home} />
-        <Route path="/Login" exact component={Login} />
+        <Route path="/login" render={ (props)=>(<Login {...props} auth={this.state.auth} setAuth={this.setAuth} />) } />
         <Route path="/Registrarse" component={Registrarse} />
         <Route path="/Principal" component={Dashboard} />
         <NavBar />

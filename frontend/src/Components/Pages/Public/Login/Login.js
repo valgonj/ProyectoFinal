@@ -14,6 +14,7 @@ export default class Login extends Component{
             email:'',
             password:'',
             Redirect:false,
+            error:null
         }
         //autobinding
         this.onChangeHandler = this.onChangeHandler.bind(this);
@@ -28,7 +29,7 @@ export default class Login extends Component{
 
     onSiginBtnClick(e){
         console.log(this.state);
-        naxios.get('/api/').then((data)=>{console.log(data)}).then((err)=>{console.log(err)});
+        naxios.post('/api/security/login', this.state).then((data)=>{console.log(data)}).then((err)=>{console.log(err)});
     }
     /*onSiginBtnClick(e){
         //console.log(this.state);

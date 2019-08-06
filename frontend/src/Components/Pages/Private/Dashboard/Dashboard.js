@@ -1,11 +1,11 @@
 import React,  {Component} from 'react';
-import {paxios, getLocalStorage, setLocalStorage} from '../../../../Utilities';
-import { Link } from 'react-router-dom';
+//import {paxios, getLocalStorage, setLocalStorage} from '../../../../Utilities';
+//import { Link } from 'react-router-dom';
 
 import './Dashboard.css';
-import { MdAdd as Plus } from 'react-icons/md';
+//import { MdAdd as Plus } from 'react-icons/md';
 
-import ThingBox from './ThingBox';
+//import ThingBox from './ThingBox';
 import DatePanel from './DatePanel';
 export default class Dashboard extends Component{
 

@@ -22,8 +22,8 @@ passport.use(
 );*/
 
 
-//const securityApi = require('./security')(db);
-//const thingsApi = require('./things')(db);
+const securityApi = require('./security');
+const thingsApi = require('./things');
 
 
 
@@ -35,7 +35,9 @@ router.get('/', (req, res, next)=>{
     res.status(200).json({"api":"version1"})
 });
 
-//router.use('/security', securityApi);
+router.use('/security', securityApi);
+router.use('/things', thingsApi);
+
 //router.use('/things', passport.authenticate('jwt', {session:false}) , thingsApi);
 
 // router.get('/hello', (req, res, next)=>{
